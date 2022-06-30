@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<%= link_to 'View Application Details', @config['barking_url'], class: 'button is-primary has-text-weight-bold' %>
+<%= link_to 'See on Google Maps', get_google_maps_link(@config['address']), class: 'button is-secondary has-text-weight-bold' %>
+
+<% content_for :header do %>
+  <%= render 'shared/address_header', address: @config['address'], application_type: @config['application_type']%>
+<% end %>
+
+<% if @house.slide_show_images.present? %>
+  <%= react_component("ImgSlider", { images: @house.slide_show_images }, { prerender: true }) %>
+<% else %>
+  <%= image_tag get_s3_url(@top_level_image), class: 'column pt-0' %>
+<% end %>
+
+<%= react_component("HouseRenderer", { model: get_s3_url(@house_id, '/','top_level_images/development_model.glb') }) %>
+
+<div class="container download-actions">
+  <%= link_to(
+    "Download AR File",
+    get_s3_url(@house_id, '/', 'top_level_images/development_model.glb'),
+    class: 'button is-primary is-pulled-left has-text-weight-bold'
+  )%>
+  <%= link_to(
+    "Download QR code",
+    get_s3_url(@house_id, '/', 'top_level_images/qrcode.png'),
+    class: 'button is-primary is-pulled-left has-text-weight-bold'
+  )%>
+</div>
