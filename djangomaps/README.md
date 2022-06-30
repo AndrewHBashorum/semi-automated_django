@@ -1,5 +1,5 @@
 
-# {{ project_name|title }}
+# {{ semi-automated_django|djmaps }}
 
 # Getting Started
 
