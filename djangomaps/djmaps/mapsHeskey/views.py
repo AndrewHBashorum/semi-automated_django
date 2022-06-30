@@ -6,7 +6,6 @@ import logging
 import json
 # Create your views here.
 def default_map(request):
-    print('IM here okay ')
     mapbox_access_token = 'pk.eyJ1IjoiYW5kcmV3YmFzaCIsImEiOiJjbDRkeWE5ZzAwY3dyM2VtbWVpd3VlM3RmIn0.M52OtwZ6It_mXAR2pBppKg'
     return render(request, 'default2.html',{
         'mapbox_access_token' : mapbox_access_token

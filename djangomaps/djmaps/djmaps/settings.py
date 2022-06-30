@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+home = str(Path.home())
 # Application definition
 
 INSTALLED_APPS = [
@@ -59,7 +59,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': '/Users/andrewbashorm/djangomaps/djmaps/mapsHeskey/file.log',
+            'filename': home + '/semi-automated_django/djangomaps/djmaps/mapsHeskey/file.log',
             'formatter': 'simple'
         },
     },
